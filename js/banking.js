@@ -23,3 +23,31 @@ document.getElementById('deposit-button').addEventListener('click', function () 
     // clear the deposit input field
     depositInput.value = ''
 })
+
+// event handler in withdraw
+document.getElementById('withdraw-button').addEventListener('click', function () {
+    const withdrawInput = document.getElementById('withdraw-input')
+    const withdrawAmoutText = withdrawInput.value
+    const newWithdaraAmount = parseFloat(withdrawAmoutText)
+    console.log(newWithdaraAmount)
+
+    // set withdraw total 
+    const withdrawTotal = document.getElementById('withdraw-total')
+    const previousWithdrawText = withdrawTotal.innerText
+    const previouseWithdrawTotal = parseFloat(previousWithdrawText)
+
+    const newWithdrawTotal = previouseWithdrawTotal + newWithdaraAmount
+
+    withdrawTotal.innerText = newWithdrawTotal
+
+    //update balance
+    const balanceTotal = document.getElementById('balance-total')
+    const previousBalanceText = balanceTotal.innerText
+    const previousBalanceTotal = parseFloat(previousBalanceText)
+    const newBalanceTotal = previousBalanceTotal - newWithdaraAmount
+
+    balanceTotal.innerText = newBalanceTotal
+
+    // clear withdraw input
+    withdrawInput.value = ''
+})
